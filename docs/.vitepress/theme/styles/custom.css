@@ -15,7 +15,9 @@
   --vp-c-brand-3: #3451b2;
 }
 
-/* Topic card grid for homepage */
+/* ================================
+   Topic card grid for homepage
+   ================================ */
 .topic-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
@@ -25,18 +27,30 @@
 
 .topic-card {
   border: 1px solid var(--vp-c-divider);
-  border-radius: 8px;
+  border-radius: 12px;
   padding: 20px;
-  transition: all 0.25s ease;
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   text-decoration: none !important;
   color: inherit !important;
   display: block;
+  animation: fadeSlideUp 0.4s ease both;
 }
+
+.topic-card:nth-child(1) { animation-delay: 0s; }
+.topic-card:nth-child(2) { animation-delay: 0.06s; }
+.topic-card:nth-child(3) { animation-delay: 0.12s; }
+.topic-card:nth-child(4) { animation-delay: 0.18s; }
+.topic-card:nth-child(5) { animation-delay: 0.24s; }
+.topic-card:nth-child(6) { animation-delay: 0.30s; }
 
 .topic-card:hover {
   border-color: var(--vp-c-brand-1);
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
-  transform: translateY(-2px);
+  box-shadow: 0 4px 20px rgba(52, 81, 178, 0.12);
+  transform: translateY(-3px);
+}
+
+.dark .topic-card:hover {
+  box-shadow: 0 4px 20px rgba(118, 148, 232, 0.15);
 }
 
 .topic-card h3 {
@@ -65,68 +79,133 @@
   margin-top: 8px;
 }
 
-/* Interactive component containers */
+/* ================================
+   Interactive component containers
+   ================================ */
 .demo-container {
   border: 1px solid var(--vp-c-divider);
-  border-radius: 8px;
+  border-radius: 12px;
   padding: 20px;
-  margin: 16px 0;
+  margin: 20px 0;
   background: var(--vp-c-bg-soft);
+  animation: fadeSlideUp 0.5s ease both;
 }
 
 .demo-controls {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
+  gap: 10px;
   margin-bottom: 16px;
   align-items: center;
 }
 
 .demo-controls select,
 .demo-controls button {
-  padding: 6px 12px;
+  padding: 6px 14px;
   border: 1px solid var(--vp-c-divider);
-  border-radius: 6px;
+  border-radius: 8px;
   background: var(--vp-c-bg);
   color: var(--vp-c-text-1);
   font-size: 0.9rem;
   cursor: pointer;
+  transition: all 0.2s;
+}
+
+.demo-controls select:hover {
+  border-color: var(--vp-c-brand-2);
 }
 
 .demo-controls button {
   background: var(--vp-c-brand-1);
   color: #fff;
   border-color: var(--vp-c-brand-1);
+  font-weight: 500;
 }
 
 .demo-controls button:hover {
   background: var(--vp-c-brand-2);
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px var(--vp-c-brand-soft);
+}
+
+.demo-controls button:active {
+  transform: translateY(0);
 }
 
 .demo-info {
   margin-top: 12px;
-  padding: 12px;
+  padding: 12px 16px;
   background: var(--vp-c-bg);
-  border-radius: 6px;
+  border-radius: 8px;
   font-size: 0.9rem;
+  border-left: 3px solid var(--vp-c-brand-1);
 }
 
 /* Audio activation banner */
 .audio-banner {
   text-align: center;
-  padding: 10px;
-  background: var(--vp-c-brand-soft);
-  border-radius: 8px;
-  margin-bottom: 12px;
+  padding: 12px;
+  background: linear-gradient(135deg, var(--vp-c-brand-soft), rgba(52, 81, 178, 0.08));
+  border-radius: 10px;
+  margin-bottom: 14px;
   cursor: pointer;
-  transition: background 0.2s;
+  transition: all 0.25s;
+  font-weight: 500;
+  border: 1px solid transparent;
 }
 
 .audio-banner:hover {
-  background: rgba(52, 81, 178, 0.22);
+  background: linear-gradient(135deg, rgba(52, 81, 178, 0.22), rgba(52, 81, 178, 0.12));
+  border-color: var(--vp-c-brand-2);
+  transform: translateY(-1px);
 }
 
-/* Responsive piano */
+/* ================================
+   Animations
+   ================================ */
+@keyframes fadeSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Content headings get a subtle entrance */
+.vp-doc h2 {
+  animation: fadeSlideUp 0.35s ease both;
+}
+
+/* Blockquotes (used for key takeaways) */
+.vp-doc blockquote {
+  border-left: 3px solid var(--vp-c-brand-1);
+  background: var(--vp-c-brand-soft);
+  border-radius: 0 8px 8px 0;
+  padding: 12px 16px;
+  margin: 16px 0;
+}
+
+.vp-doc blockquote p {
+  color: var(--vp-c-text-1);
+}
+
+/* Code blocks */
+.vp-doc div[class*='language-'] {
+  border-radius: 10px;
+}
+
+/* Tables */
+.vp-doc table {
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+/* ================================
+   Responsive
+   ================================ */
 @media (max-width: 640px) {
   .piano-wrapper {
     overflow-x: auto;
@@ -140,5 +219,9 @@
   .demo-controls select,
   .demo-controls button {
     width: 100%;
+  }
+
+  .topic-grid {
+    grid-template-columns: 1fr;
   }
 }

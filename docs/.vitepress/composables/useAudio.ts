@@ -44,14 +44,31 @@ async function initAudio(): Promise<void> {
 }
 
 /** Play a note using OscillatorNode as immediate fallback, sampler when ready */
-function playNote(noteStr: string, duration = '8n'): void {
+function playNote(noteStr: string, timeOrDuration?: number | string, duration?: number | string): void {
   if (!audioReady.value) return
 
+  // Overloads: playNote(note), playNote(note, duration), playNote(note, time, duration)
+  let time: number | undefined
+  let dur: string | number = '8n'
+
+  if (duration !== undefined) {
+    // playNote(note, time, duration)
+    time = timeOrDuration as number
+    dur = duration
+  } else if (timeOrDuration !== undefined) {
+    // playNote(note, duration)
+    dur = timeOrDuration
+  }
+
   if (samplerLoaded.value && sampler) {
-    sampler.triggerAttackRelease(noteStr, duration)
+    sampler.triggerAttackRelease(noteStr, dur, time)
   } else {
-    // OscillatorNode fallback for instant response before samples load
-    playWithOscillator(noteStr)
+    if (time !== undefined) {
+      const delay = Math.max(0, (time - Tone.now()) * 1000)
+      setTimeout(() => playWithOscillator(noteStr), delay)
+    } else {
+      playWithOscillator(noteStr)
+    }
   }
 }
 
