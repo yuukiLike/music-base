@@ -25,16 +25,17 @@
 
 格子会重复，但格子里放的内容不一定重复。
 
-同样都是 4/4，四个小节可以完全不同：
+试试下面的节奏网格 — 点击不同的预设，听听同样的骨架下不同的"内容"：
 
-```
-第1小节：咚 - 咚 -
-第2小节：- 咚咚 -
-第3小节：咚咚 - 咚
-第4小节：- - 咚 咚
-```
+<ClientOnly>
+  <RhythmGrid />
+</ClientOnly>
 
-小节结构没变。BPM 没变。拍号没变。**但内容已经变了。**
+<script setup>
+import RhythmGrid from '../.vitepress/components/RhythmGrid.vue'
+</script>
+
+拍号没变。BPM 没变。小节结构没变。**但内容已经变了。**
 
 ## 为什么不会无聊？
 

@@ -22,23 +22,21 @@
 | 节拍 | Beat | 稳定脉冲，底层网格 |
 | 节奏 | Rhythm | 事件如何落在网格上 |
 
-你可以把它理解为：
+**beat** = 时间格子，**rhythm** = 往格子里放事件的方法。
 
-- **beat** = 时间格子
-- **rhythm** = 往格子里放事件的方法
+## 亲手试一试
 
-## 一个最简单的对比
+点击格子来放置或移除音符，听听不同节奏的差异：
 
-同样是 4/4，同样只有一个音 C：
+<ClientOnly>
+  <RhythmGrid />
+</ClientOnly>
 
-```
-方案 A：C  C  C  C     ← 每拍都响
-方案 B：C  -  C  C     ← 第2拍空了
-方案 C：C  C  -  C     ← 第3拍空了
-方案 D：-  C  C  -     ← 两头空
-```
+<script setup>
+import RhythmGrid from '../.vitepress/components/RhythmGrid.vue'
+</script>
 
-拍号没变，速度没变，但节奏已经不同了。
+拍号没变，速度没变，但节奏已经完全不同了。
 
 **固定拍子之上，节奏仍然可以千变万化。**
 
