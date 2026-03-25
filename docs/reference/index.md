@@ -78,6 +78,18 @@ articulation   怎么发出来
 ⑧ MIDI        结构化事件流
 ```
 
+## 五度圈
+
+五度圈是理解调性关系的核心工具。点击任意调，查看它的自然和弦：
+
+<ClientOnly>
+  <CircleOfFifths />
+</ClientOnly>
+
+<script setup>
+import CircleOfFifths from '../.vitepress/components/CircleOfFifths.vue'
+</script>
+
 ## 深入参考
 
 如果你想深入某个具体话题：

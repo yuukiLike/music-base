@@ -25,6 +25,8 @@ export default defineConfig({
       '/expression/': sidebarLearningPath(),
       '/midi/': sidebarLearningPath(),
       '/reference/': sidebarLearningPath(),
+      '/ear-training/': sidebarLearningPath(),
+      '/progressions/': sidebarLearningPath(),
 
       // Deep-dive reference sections
       '/intervals/': [
@@ -181,9 +183,16 @@ function sidebarLearningPath() {
       ],
     },
     {
-      text: '⑦ 速查',
+      text: '⑦ 实战',
       items: [
-        { text: '混淆点速查 + 词汇表', link: '/reference/' },
+        { text: '听音训练', link: '/ear-training/' },
+        { text: '和弦进行', link: '/progressions/' },
+      ],
+    },
+    {
+      text: '⑧ 速查',
+      items: [
+        { text: '五度圈 + 词汇表', link: '/reference/' },
       ],
     },
   ]

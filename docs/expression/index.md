@@ -12,6 +12,7 @@
 
 <script setup>
 import ExpressionDemo from '../.vitepress/components/ExpressionDemo.vue'
+import WaveformVisualizer from '../.vitepress/components/WaveformVisualizer.vue'
 </script>
 
 ## Dynamics / 力度
@@ -47,6 +48,14 @@ import ExpressionDemo from '../.vitepress/components/ExpressionDemo.vue'
 - **timbre** = 质感
 
 音色由**泛音结构**决定 — 同一个基础频率上叠加了不同的泛音比例，就形成了不同的"声音指纹"。
+
+### 亲眼看到音色
+
+不同波形 = 不同泛音结构 = 不同音色。播放下面的四种波形，观察波形和频谱的区别：
+
+<ClientOnly>
+  <WaveformVisualizer />
+</ClientOnly>
 
 ## Articulation / 演奏法
 
