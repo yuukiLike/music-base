@@ -2,20 +2,34 @@
 
 即使时间和音高都一样，听感还是会因为表达层而不同。
 
+## 亲手感受
+
+调整力度滑块和演奏法按钮，听同一段旋律的变化：
+
+<ClientOnly>
+  <ExpressionDemo />
+</ClientOnly>
+
+<script setup>
+import ExpressionDemo from '../.vitepress/components/ExpressionDemo.vue'
+</script>
+
 ## Dynamics / 力度
 
 力度表示：**声音的强弱**。
 
-| 记号 | 意大利语 | 含义 |
-|------|----------|------|
-| pp | pianissimo | 很弱 |
-| p | piano | 弱 |
-| mp | mezzo-piano | 中弱 |
-| mf | mezzo-forte | 中强 |
-| f | forte | 强 |
-| ff | fortissimo | 很强 |
+| 记号 | 意大利语 | 含义 | Velocity 范围 |
+|------|----------|------|--------------|
+| pp | pianissimo | 很弱 | ~20-30 |
+| p | piano | 弱 | ~30-50 |
+| mp | mezzo-piano | 中弱 | ~50-70 |
+| mf | mezzo-forte | 中强 | ~70-90 |
+| f | forte | 强 | ~90-110 |
+| ff | fortissimo | 很强 | ~110-127 |
 
 在 MIDI 语境下，力度和 `velocity`（速度值 0-127）很接近。velocity 越高，弹得越重。
+
+刚才你拖动滑块时，就是在改变 velocity 值。
 
 ## Timbre / 音色
 
@@ -38,13 +52,13 @@
 
 演奏法表示：**这个音是怎么被发出来的**。
 
-| 演奏法 | 英文 | 效果 |
-|--------|------|------|
-| 连奏 | Legato | 音与音之间无缝连接 |
-| 断奏 | Staccato | 短促、跳跃 |
-| 重音 | Accent | 强调某个音 |
-| 渐强 | Crescendo | 逐渐变强 |
-| 渐弱 | Decrescendo | 逐渐变弱 |
+| 演奏法 | 英文 | 效果 | 你刚才听到的 |
+|--------|------|------|-------------|
+| 连奏 | Legato | 音与音之间无缝连接 | 平滑流动 |
+| 断奏 | Staccato | 短促、跳跃 | 清脆跳动 |
+| 重音 | Accent | 强调某些音 | 有节奏感的强调 |
+| 渐强 | Crescendo | 逐渐变强 | — |
+| 渐弱 | Decrescendo | 逐渐变弱 | — |
 
 你可以把它理解成"发音语气"。同样的字，用不同语气说，含义不同。
 

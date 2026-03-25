@@ -17,6 +17,20 @@
 | 用什么音色 | timbre | 乐器质感 |
 | 怎么发出来 | articulation | 演奏方式 |
 
+## 亲手试一试
+
+点击下面的格子放置声音事件，然后播放 — 看看时间轴和 JSON 数据如何对应：
+
+<ClientOnly>
+  <TimelineDemo />
+</ClientOnly>
+
+<script setup>
+import TimelineDemo from '../.vitepress/components/TimelineDemo.vue'
+</script>
+
+你刚才做的事情，就是"在时间轴上安排声音事件"。这就是音乐的本质。
+
 用 JSON 来表达：
 
 ```json
